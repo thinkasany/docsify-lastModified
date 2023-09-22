@@ -9,7 +9,6 @@ function formatDateTime(dateTimeString) {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-const plugin = (hook, vm) => {
   const text = vm.config.lastModifiedText || ''
   const repo = vm.config.repo
 
