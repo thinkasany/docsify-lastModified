@@ -19,8 +19,10 @@ https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/npm/docsify-lastmodified/index.mi
 
 # 🇺🇳 国际化
 ```
-const isEn = () => location.hash.includes('README_EN');
-lastModifiedText: isEn() ? 'Last updated: ' : '最近更新时间：',
+    lastModifiedText: {
+        '/README_EN': 'Last updated: ',
+        '/': '最近更新时间：',
+    },
 ```
 
 # 🚀谁在用我
@@ -30,7 +32,11 @@ lastModifiedText: isEn() ? 'Last updated: ' : '最近更新时间：',
 | 2   | [advanced-java](https://github.com/doocs/advanced-java)           |     😮 Core Interview Questions & Answers For Experienced Java(Backend) Developers 互联网 Java 工程师进阶知识完全扫盲：涵盖高并发、分布式、高可用、微服务、海量数据处理等领域知识       |![](https://badgen.net/github/stars/doocs/advanced-java) <br>![](https://badgen.net/github/forks/doocs/advanced-java)  
 
 # 🌈 实现效果
+
 显示最后更新时间
+
 ![](images/1.png)
+
 跳转至文件的历史commit记录
+
 ![](images/2.png)

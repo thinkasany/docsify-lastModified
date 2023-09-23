@@ -10,17 +10,17 @@ function formatDateTime(dateTimeString) {
 }
 
 const plugin = (hook, vm) => {
-  let text = vm.config.lastModifiedText || "";
-
   const repo = vm.config.repo;
 
   hook.beforeEach(html => {
     const { file, path } = vm.route;
-    if (vm.config.lastModifiedConfig) {
-      const lastModifiedConfig = vm.config.lastModifiedConfig;
-      text = lastModifiedConfig.reg.test(path)
-        ? lastModifiedConfig.en
-        : lastModifiedConfig.zh;
+    let text = vm.config.lastModifiedText || "";
+    if (typeof text === "object") {
+      Object.keys(text).some(local => {
+        const isMatch = path && path.indexOf(local) > -1;
+        text = isMatch ? text[local] : text;
+        return isMatch;
+      });
     }
 
     const apiUrl = `https://api.github.com/repos/${repo}/commits?path=${file}`;
