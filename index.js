@@ -11,6 +11,7 @@ function formatDateTime(dateTimeString) {
 
 const plugin = (hook, vm) => {
   const repo = vm.config.repo;
+  const branch = vm.config.lastModifiedBranch || 'main';
 
   hook.beforeEach(html => {
     const { file, path } = vm.route;
@@ -28,7 +29,7 @@ const plugin = (hook, vm) => {
       .then(response => response.json())
       .then(data => {
         const date = data[0].commit.committer.date;
-        const commitUrl = `https://github.com/${repo}/commits/main/${file}`;
+        const commitUrl = `https://github.com/${repo}/commits/${branch}${file}`;
         const lastModified = formatDateTime(date);
         const lastModifiedContent = `
           <blockquote>

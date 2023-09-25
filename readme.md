@@ -10,6 +10,7 @@ docsify插件: 最后一次编辑时间
 ```
 repo: 'doocs/advanced-java'
 lastModifiedText: '最近更新时间：'
+lastModifiedBranch: 'master', // 默认main分支，如果是则可以省略配置
 ```
 
 # 🔗 CDN 
